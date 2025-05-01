@@ -5,9 +5,9 @@ services:
     environment:
       SERVER_NAME: mykibana.local
       SERVER_HOST: 172.20.0.2
-      ELASTICSEARCH_HOSTS: '["http://192.168.122.97:9200","http://192.168.122.67:9200","http://192.168.122.89:9200"]'
-      ELASTICSEARCH_USERNAME: kibana_system
-      ELASTICSEARCH_PASSWORD: 0fAJQrtTW7U6wuLlWvLE
+      ELASTICSEARCH_HOSTS: '["http://${ES_HOST_1}:9200","http://${ES_HOST_2}:9200","http://${ES_HOST_3}:9200"]'
+      ELASTICSEARCH_USERNAME: ${KBN_USER}
+      ELASTICSEARCH_PASSWORD: ${KBN_PASS}
     networks:
       elastic:
         ipv4_address: 172.20.0.2
