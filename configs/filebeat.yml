@@ -1,0 +1,18 @@
+filebeat.config.modules:
+  path: /usr/share/filebeat/modules.d/*.yml
+  reload.enabled: false
+filebeat.inputs:
+- type: filestream
+  id: nginx-logs
+  paths:
+    - /var/log/nginx/*.log
+
+output.elasticsearch:
+  hosts: 
+    - http://192.168.122.97:9200
+    - http://192.168.122.67:9200
+    - http://192.168.122.89:9200
+  username: "elastic"
+  password: "WUHUPJx9GykQQM1F0IVl"
+# output.logstash:
+#   hosts: ["logstash:5044"]

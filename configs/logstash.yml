@@ -1,0 +1,33 @@
+# ------------------------ Logstash Configuration ------------------------
+
+# Bind address for the HTTP API (used by monitoring or pipeline info)
+http.host: "0.0.0.0"
+
+# Logging level (can be: fatal, error, warn, info, debug, trace)
+log.level: info
+
+# Path settings (adjust if using Docker volumes)
+path.data: /usr/share/logstash/data
+path.logs: /usr/share/logstash/logs
+
+# Enable monitoring API
+monitoring.enabled: false
+
+# Allow configuration reloading without restart
+config.reload.automatic: true
+config.reload.interval: 5s
+
+# Pipelines configuration
+pipeline.id: main
+pipeline.workers: 2
+pipeline.batch.size: 125
+pipeline.batch.delay: 50
+
+# Default location for pipeline configs
+path.config: /usr/share/logstash/pipeline
+
+# Queue (optional but useful for persistence)
+queue.type: memory
+
+# Avoid unsafe directory settings
+config.support_escapes: true
