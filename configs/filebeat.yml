@@ -9,10 +9,8 @@ filebeat.inputs:
 
 output.elasticsearch:
   hosts: 
-    - http://192.168.122.97:9200
-    - http://192.168.122.67:9200
-    - http://192.168.122.89:9200
-  username: "elastic"
-  password: "WUHUPJx9GykQQM1F0IVl"
-# output.logstash:
-#   hosts: ["logstash:5044"]
+    - http://${ES_HOST_1}:9200
+    - http://${ES_HOST_2}:9200
+    - http://${ES_HOST_3}:9200
+  username: ${ES_USER}
+  password: ${ES_PASS}
