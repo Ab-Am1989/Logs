@@ -14,3 +14,7 @@ output.elasticsearch:
     - http://${ES_HOST_3}:9200
   username: ${ES_USER}
   password: ${ES_PASS}
+  enabled: false
+output.logstash:
+  hosts:
+    - logstash:5044

@@ -28,6 +28,8 @@ services:
   filebeat:
     image: docker.elastic.co/beats/filebeat:8.15.2
     container_name: filebeat-nginx
+    env_file:
+      - .env
     volumes:
       - $PWD/configs/filebeat.yml:/usr/share/filebeat/filebeat.yml
       - $PWD/nginx-log:/var/log/nginx:ro
@@ -40,11 +42,13 @@ services:
   logstash:
     image: docker.elastic.co/logstash/logstash:8.15.5
     container_name: logstash
+    env_file:
+      - .env
     networks:
       - elastic
     volumes:
-      - $PWD:/configs/logstash.conf:/usr/share/logstash/config/logstash.yml
-      - $PWD:/configs/pipeline:/usr/share/logstash/pipeline
+      - $PWD/configs/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - $PWD/configs/pipeline:/usr/share/logstash/pipeline
 
 networks:
   elastic:
