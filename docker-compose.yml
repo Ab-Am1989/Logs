@@ -49,6 +49,7 @@ services:
     volumes:
       - $PWD/configs/logstash.yml:/usr/share/logstash/config/logstash.yml
       - $PWD/configs/pipeline:/usr/share/logstash/pipeline
+      - $PWD/sample-log/sample.log:/tmp/sample.log
 
 networks:
   elastic:
